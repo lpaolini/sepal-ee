@@ -1,0 +1,8 @@
+node_modules/
+
+# Visual Studio
+.vscode
+
+# IntelliJ
+*.iml
+.idea/

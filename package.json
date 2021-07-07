@@ -1,0 +1,45 @@
+{
+    "name": "@sepal/ee",
+    "version": "1.0.0",
+    "description": "",
+    "author": "",
+    "license": "ISC",
+    "main": "src/index.js",
+    "exports": {
+        ".": "./src/index.js",
+        "./*": "./src/*.js",
+        "./classification/*": "./src/classification/*.js",
+        "./optical/*": "./src/optical/*.js",
+        "./radar/*": "./src/radar/*.js",
+        "./timeseries/*": "./src/timeseries/*.js"
+    },
+    "scripts": {
+        "postinstall": "link-module-alias",
+        "preinstall": "command -v link-module-alias && link-module-alias clean || true",
+        "test": "jest",
+        "testWatch": "jest --watchAll"
+    },
+    "_moduleAliases": {
+        "ee": "src"
+    },
+    "dependencies": {
+        "@sepal/log": "git://github.com/lpaolini/sepal-log",
+        "@sepal/utils": "git://github.com/lpaolini/sepal-utils",
+        "@google/earthengine": "0.1.272",
+        "lodash": "^4.17.21",
+        "moment": "^2.29.1",
+        "rxjs": "^7.1.0",
+        "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+        "eslint": "^7.30.0",
+        "jest": "^27.0.6",
+        "jest-expect-message": "^1.0.2",
+        "link-module-alias": "^1.2.0"
+    },
+    "jest": {
+        "setupFilesAfterEnv": [
+            "jest-expect-message"
+        ]
+    }
+}
